@@ -1,0 +1,31 @@
+.icon {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 45px;
+  height: 45px;
+}
+
+.welcome-text {
+  color: #6E8898;
+  padding: 25px;
+}
+
+.header {
+  display: flex;
+  color: indianred;
+  margin-bottom: 20px;
+
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 3px;
+}
+
+.signup-button {
+  background-color: indianred;
+  color: white;
+  border-radius: 5px;
+}
