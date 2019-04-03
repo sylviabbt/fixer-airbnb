@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :skills do
     resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:show] do
+      resources :reviews, only: [:create, :new]
+    end
   end
-  resources :bookings, only: [:show] do
-    resources :reviews, only: [:create, :new]
-  end
-  resources :users, only: [:show]
+    resources :users, only: [:show]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 

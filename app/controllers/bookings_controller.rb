@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
+#     authorize @booking
     @booking.user = current_user
     @skill = Skill.find(params[:skill_id])
     @booking.skill = @skill
