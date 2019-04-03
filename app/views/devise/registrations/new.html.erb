@@ -1,25 +1,42 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
+<div class="container text-center">
+  <div class="header">
+    <%= image_tag "lifesaver.png", class:"icon" %>
+    <h3>Fix My Sh*t!</h3>
+  </div>
+  <p>Ever had a date over and the toilet gets clogged?</p>
+  <%= image_tag "anxiety.png", class:"icon" %>
+  <p>Landlord trying to con you out of your rental deposit?</p>
+  <%= image_tag "anger.png", class:"icon"  %>
+  <p>Dropped your phone in the toilet and the Apple store
+    has a 2 week wait?</p>
+  <%= image_tag "girl.png", class:"icon" %>
+  <div class="welcome-text">
+    <h4>Hey, we get it...<strong>Sh*t happens!</strong></h4>
+    <p>Don’t worry, we’ve got you covered. </p>
+  </div>
+  <div class="form-card card border-light mt-9 mb-3 p-3">
+    <p><em>Need something fixed?
+        Sign up now and get it done in no time!
+      </em></p>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+      <div class="form-inputs my-6 p-3">
+        <%= f.input :email,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
+        <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+        <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up", class:"signup-button" %>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
