@@ -12,6 +12,8 @@ Booking.delete_all if Rails.env.development?
 Skill.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 
+User.create!(email: "ivy.yu@gmail.com", password: "123123")
+
 5.times do
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,  email: Faker::Internet.email, location: Faker::Address.city, contact_info: Faker::PhoneNumber.phone_number, password: Faker::Internet.password)
   user.save!
@@ -22,16 +24,18 @@ User.delete_all if Rails.env.development?
   p skill.latest_available
 end
 
-3.times do
-  booking = Booking.new(user: User.all.sample, skill: Skill.all.sample)
-  booking.start_time = Faker::Time.between(2.days.ago, Date.today, :afternoon)
-  booking.end_time = Faker::Time.between(2.days.ago, Date.today, :evening)
-  booking.total_price = booking.skill.price_per_hour * 2
-  booking.address = Faker::Address.street_address
-  booking.save!
+User.all.each do |user|
   3.times do
-    rating = Array(0..5).sample
-    p rating
-    review = Review.create!(content: Faker::Hipster.sentence, rating: rating, booking: booking)
+    booking = Booking.new(user: user, skill: Skill.all.sample)
+    booking.start_time = Faker::Time.between(2.days.ago, Date.today, :afternoon)
+    booking.end_time = Faker::Time.between(2.days.ago, Date.today, :evening)
+    booking.total_price = booking.skill.price_per_hour * 2
+    booking.address = Faker::Address.street_address
+    booking.save!
+    3.times do
+      rating = Array(0..5).sample
+      p rating
+      review = Review.create!(content: Faker::Hipster.sentence, rating: rating, booking: booking)
+    end
   end
 end
