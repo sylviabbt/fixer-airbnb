@@ -5,13 +5,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
-    authorize @booking
+    #     authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    authorize @booking
+    # authorize @booking
     @booking.user = current_user
+    @skill = Skill.find(params[:skill_id])
+    @booking.skill = @skill
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
