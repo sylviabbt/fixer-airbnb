@@ -1,11 +1,11 @@
-class BookingPolicy < ApplicationPolicy
-  class Scope < Scope
-    def resolve
-      scope.all
-    end
+# class BookingPolicy < ApplicationPolicy
+#   class Scope < Scope
+#     def resolve
+#       scope.all
+#     end
 
-    def create?
-      return true
-    end
-  end
-end
+#     def create?
+#       return true
+#     end
+#   end
+# end
