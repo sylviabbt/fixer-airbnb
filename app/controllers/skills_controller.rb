@@ -6,7 +6,7 @@ class SkillsController < ApplicationController
   end
 
   def new
-    @skills = Skill.new
+    @skill = Skill.new
   end
 
   def create
@@ -32,5 +32,7 @@ class SkillsController < ApplicationController
     @skill = Skill.find(params[:id])
   end
 
-
+  def skill_params
+    params.require(:skill).permit(:title, :price_per_hour, :earliest_available, :latest_available)
+  end
 end
