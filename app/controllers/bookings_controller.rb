@@ -5,11 +5,15 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.user = current_user
+    @skill = Skill.find(params[:skill_id])
+    @booking.skill = @skill
     respond_to do |format|
       if @booking.save
         format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
@@ -24,6 +28,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_time, :end_time, :total_price, :address, :contact_info, :user_id, :skill_id)
+    params.require(:booking).permit(:start_time, :end_time, :total_price, :address, :contact_info)
   end
 end
