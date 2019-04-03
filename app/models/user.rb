@@ -8,8 +8,6 @@ class User < ApplicationRecord
   has_many :reviews, through: :bookings
 
   validates :email, presence: true, uniqueness: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :location, presence: true, uniqueness: true
-  validates :contact_info, presence: true, uniqueness: true
+  # validates :location, presence: true, uniqueness: true
+  # validates :contact_info, presence: true, uniqueness: true
 end

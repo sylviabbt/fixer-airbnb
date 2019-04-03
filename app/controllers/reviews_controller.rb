@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   def new
     @booking = Booking.find(params[:booking_id])
+    # @skill = Skill.find(params[:skill_id])
     @review = Review.new
   end
 
@@ -17,6 +18,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :rating, :booking_id)
+    params.require(:review).permit(:content, :rating)
   end
 end
