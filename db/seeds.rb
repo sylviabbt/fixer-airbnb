@@ -13,10 +13,20 @@ Skill.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 Category.delete_all if Rails.env.development?
 
-User.create!(email: "ivy.yu@gmail.com", password: "123123")
+
 handy = Category.create!(title: "Handy Sh*t", image: "https://pegramandnoyes.com/wp-content/uploads/sites/6/does_a_handyman_need_insurance_north_carolina.jpg")
 life = Category.create!(title: "Life Sh*t", image: "https://brandsite-static.hdfclife.com/media/image/RS-IB3_qBwmG4y.jpg")
 professional = Category.create!(title: "Professional Sh*t", image: "https://www.teamslf.com/wp-content/uploads/2015/03/Fort-Worth-Family-Law-Divorce-Attorneys_1000x599.jpg")
+
+
+ivy = User.create!(first_name: "Ivy", last_name: "Yu", location: "Shanghai", contact_info: "1888888888", email: "ivy.yu@gmail.com", password: "123123", picture: "https://www.peekskillnurseries.com/wp-content/uploads/2018/04/englishivy.jpg")
+skill_ivy = Skill.new(category: handy, title: "Plumber", price_per_hour: 100, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy.user_id = ivy.id
+skill_ivy.save
+skill_ivy_2 = Skill.new(category: life, title: "Arguing with People", price_per_hour: 150, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy_2.user_id = ivy.id
+skill_ivy_2.save
+
 
 5.times do
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,  email: Faker::Internet.email, location: Faker::Address.city, contact_info: Faker::PhoneNumber.phone_number, password: Faker::Internet.password)

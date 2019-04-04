@@ -1,1 +1,7 @@
-<p>Hi, I'm ...</p>
+<h1>Hi, I'm <%= current_user.first_name %></h1>
+<p><%= current_user.location %></p>
+<%= image_tag current_user.picture %>
+<% current_user.skills.each do |skill| %>
+  <p><%= skill.title %></p>
+  <p> <%= link_to Book now!, new_skill_booking %></p>
+<% end %>
