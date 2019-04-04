@@ -4,6 +4,7 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
 
+
     def index?
       true
     end
