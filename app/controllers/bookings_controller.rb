@@ -1,16 +1,20 @@
 class BookingsController < ApplicationController
   def index
+
     @bookings = Booking.all.where(user: current_user)
+    raise
+    authorize @booking
   end
 
   def new
     @booking = Booking.new
-    #     authorize @booking
+    authorize @booking
+
   end
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
+    authorize @booking
     @booking.user = current_user
     @skill = Skill.find(params[:skill_id])
     @booking.skill = @skill

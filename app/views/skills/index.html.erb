@@ -7,19 +7,19 @@
   </div>
 <% end %>
 <!-- Skills Listings -->
-<h1>Skill Listing</h1>
+<h1>Skills Listings</h1>
 <!-- Categories Here into card with header -->
 <div class="container">
   <% @skills.each do |skill| %>
     <div class="card-skill">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://pegramandnoyes.com/wp-content/uploads/sites/6/does_a_handyman_need_insurance_north_carolina.jpg"  %>
-        Handy Sh*t
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path skill.category.image %>')">
+        <%= skill.category.title %>
       </div>
       <div class="card-skill-infos">
         <div class="col">
-          <%= skill.title %>
-          <%= skill.user.first_name %>
-          <%= skill.user.location %>
+          <h4><%= skill.title %></h4>
+          <p><%= skill.user.first_name %></p>
+          <p><%= skill.user.location %></p>
         </div>
       </div>
     <% end %>
