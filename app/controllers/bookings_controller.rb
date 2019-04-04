@@ -1,9 +1,8 @@
 class BookingsController < ApplicationController
   def index
 
-    @bookings = Booking.all.where(user: current_user)
-    raise
-    authorize @booking
+    @bookings = policy_scope(Booking).all.where(user: current_user)
+
   end
 
   def new

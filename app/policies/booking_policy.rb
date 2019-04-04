@@ -3,6 +3,7 @@ class BookingPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+
   end
 
 
@@ -10,13 +11,6 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-    def index?
-      true
-    end
-
-  def index?
-    true
-  end
 
   def create?
     return true
