@@ -3,19 +3,27 @@ class SkillPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def destroy?
-      owner_or_admin?
-    end
+  def show?
+    true
+  end
 
-    private
+  def new?
+    true
+  end
 
-    def owner_or_admin?
-      record.user == user || user.admin
-    end
+  def destroy?
+    owner_or_admin?
+  end
+
+  private
+
+  def owner_or_admin?
+    record.user == user || user.admin
   end
 end

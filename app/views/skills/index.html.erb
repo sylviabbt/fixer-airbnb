@@ -21,6 +21,8 @@
           <p><%= skill.user.first_name %></p>
           <p><%= skill.user.location %></p>
         </div>
+        <%= image_tag '10_avatar-512.png', class:"card-skill-user avatar-bordered"%>
+        <%= link_to "See More", skill_path(skill) %>
       </div>
     <% end %>
   </div>
