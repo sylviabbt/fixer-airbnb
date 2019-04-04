@@ -1,0 +1,19 @@
+<div class="container my-3 p-3">
+  <%= simple_form_for(current_user) do |user| %>
+    <%= user.input :picture, class:"card-skill-user avatar-bordered w-25 h-25 my-3"%>
+    <%= user.input :first_name %>
+    <%= user.input :last_name %>
+    <%= user.input :contact_info%>
+    <%= user.submit "save", class: "btn btn-primary" %>
+  <% end %>
+
+<div class="card-skill-add my-3 p-3">
+<%= simple_form_for @skill do |skill| %>
+<%= skill.association :category %>
+  <%= skill.input :title, placeholder: "please describe (e.g. plumber)" %>
+  <%= skill.input :earliest_available %>
+  <%= skill.input :latest_available %>
+  <%= skill.submit "Add Skill", class: "btn btn-primary" %>
+<% end %>
+</div>
+</div

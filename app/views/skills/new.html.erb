@@ -1,4 +1,5 @@
 <%= simple_form_for @skill do |f| %>
+  <%= f.association :category %>
   <%= f.input :title  %>
   <%= f.input :earliest_available  %>
   <%= f.input :latest_available  %>
