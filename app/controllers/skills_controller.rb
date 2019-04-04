@@ -1,6 +1,8 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :destroy]
   after_action :verify_policy_scoped, only: [:index]
+  skip_before_action :verify_authenticity_token
+
   def index
     @skills = policy_scope(Skill)
   end
@@ -11,7 +13,9 @@ class SkillsController < ApplicationController
   end
 
   def create
-    @skills = Skill.new(skill_params)
+    @skill = Skill.new(skill_params)
+    @user = current_user
+    @skill.user = @user
     authorize @skill
     if @skill.save
       redirect_to @user
@@ -36,6 +40,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:title, :price_per_hour, :earliest_available, :latest_available)
+    params.require(:skill).permit(:category_id, :title, :price_per_hour, :earliest_available, :latest_available)
   end
 end
