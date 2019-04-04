@@ -1,5 +1,26 @@
-<h1>Skill Listing</h1>
-
-<% @skills.each do |skill| %>
-  <%= skill.title %>
+<%= simple_form_for :search, url: root_path, method: :get do |f| %>
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
 <% end %>
+<!-- Skills Listings -->
+<h1>Skill Listing</h1>
+<!-- Categories Here into card with header -->
+<div class="container">
+  <% @skills.each do |skill| %>
+    <div class="card-skill">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://pegramandnoyes.com/wp-content/uploads/sites/6/does_a_handyman_need_insurance_north_carolina.jpg"  %>
+        Handy Sh*t
+      </div>
+      <div class="card-skill-infos">
+        <div class="col">
+          <%= skill.title %>
+          <%= skill.user.first_name %>
+          <%= skill.user.location %>
+        </div>
+      </div>
+    <% end %>
+  </div>
