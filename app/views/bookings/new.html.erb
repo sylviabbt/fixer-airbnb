@@ -1,17 +1,16 @@
-<h1>Make a new booking!</h1>
 <div class="container">
-  <% @booking.each do |b| %>
-    <h3>Make a booking with <%= b.user.first_name %></h3>
-    <p><%= b.skill.title %></p>
-    <%#= image_tag  %>
-    <p>Available Times:</p>
-    <%= b.start_time.strftime("%b %e, %l:%M %p") %> -- <%= b.end_time.strftime("%b %e, %l:%M %p") %>
+  <%= link_to skills_path do %>
+    <i class=“fas fa-chevron-circle-left”> Back</i>
   <% end %>
+  <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
+  <h3>Make a booking with <%= current_user.first_name %></h3>
+  <p>Available Times:</p>
+  <%= @skill.earliest_available.strftime("%b %e, %l:%M %p") %> -- <%= @skill.latest_available.strftime("%b %e, %l:%M %p") %>
   <div class="booking-form">
-    <% simple_form_for(@booking) do |f| %>
+    <%= simple_form_for [@skill, @booking] do |f| %>
       <%= f.input :address %>
       <%= f.input :start_time %>
-      <%= f.button :submit, class:"btn btn-primary" %>
+      <%= f.submit "book now!", class:"btn btn-primary" %>
     <% end %>
   </div>
 </div>
