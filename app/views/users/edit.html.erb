@@ -1,0 +1,17 @@
+<div class="container">
+  <%= simple_form_for(current_user) do |user| %>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
+    <%= user.input :first_name %>
+    <%= user.input :last_name %>
+    <%= user.input :contact_info%>
+    <%= user.submit "save", class: "btn btn-primary" %>
+  <% end %>
+</div
+
+<div class="container">
+<%= simple_form_for [current_user, @skill] do |skill| %>
+  <%= skill.input :title, placeholder: "please describe (e.g. plumber)" %>
+  <%= skill.input :earliest_available %>
+  <%= skill.input :latest_available %>
+  <%= skill.submit "add a skill", class: "btn btn-primary" %>
+<% end %>
