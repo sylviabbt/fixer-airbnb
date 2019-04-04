@@ -2,18 +2,22 @@
   <div class="card-category my-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path @skill.category.image %>')">
     <%= @skill.category.title %>
   </div>
+  <%= link_to skills_path do %>
+    <i class="fas fa-chevron-circle-left"> Back</i>
+  <% end %>
   <div class="user-info">
-    <div class="col-8 offset-2 align-center">
+    <div class="col-8 offset-2 text-center">
       <h4><%= @skill.title %></h4>
-      <%= image_tag '10_avatar-512.png', class:"card-skill-user avatar-bordered w-50 my-3"%>
+      <%= image_tag @skill.user.picture, class:"card-skill-user avatar-bordered w-50 h-50 my-3"%>
       <p><%= @skill.user.first_name %></p>
+      <p><%= link_to "View Profile" %></p>
       <h5>Price:</h5>
       <p><i class="fas fa-euro-sign"></i><%= @skill.price_per_hour %>/per hour</p>
       <h5>Availability:</h5>
       <p><%= @skill.earliest_available.strftime("%b %e, %l:%M %p") %> -- <%= @skill.latest_available.strftime("%b %e, %l:%M %p") %></p>
       <h5>Location:</h5>
       <p><%= @skill.user.location %></p>
+      <%= link_to "Make a Booking!", new_skill_booking_path(@skill), class:"btn btn-flat p-2 my-3" %>
     </div>
   </div>
-  <%= link_to "Make a Booking!", new_skill_booking_path(@skill), class:"btn btn-warning p-2 my-3" %>
 </div>
