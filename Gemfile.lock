@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/stympy/faker.git
-  revision: 1a39a9a76aa9a040466ba9ee944dc2aae1ea84de
+  revision: abf825050ed235c0b256b3ccbb55373b4e7d472d
   branch: master
   specs:
     faker (1.9.3)
@@ -126,7 +126,11 @@ GEM
     puma (3.12.1)
     pundit (2.0.1)
       activesupport (>= 3.0.0)
+<<<<<<< HEAD
     rack (2.0.6)
+=======
+    rack (2.0.7)
+>>>>>>> master
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)

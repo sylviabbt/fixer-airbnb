@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for [@booking, @review] do |r| %>
+    <%= r.input :content %>
+    <%= r.input :rating %>
+    <%= r.submit "modify a restaurant", class: "btn btn-primary" %>
+  <% end %>
+</div>

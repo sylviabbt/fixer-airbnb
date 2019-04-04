@@ -1,8 +1,4 @@
 <div class="container text-center">
-  <div class="header">
-    <%= image_tag "lifesaver.png", class:"icon" %>
-    <h3>Fix My Sh*t!</h3>
-  </div>
   <p>Ever had a date over and the toilet gets clogged?</p>
   <%= image_tag "anxiety.png", class:"icon" %>
   <p>Landlord trying to con you out of your rental deposit?</p>
@@ -21,6 +17,8 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs my-6 p-3">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
         <%= f.input :email,
                 required: true,
                 autofocus: true,

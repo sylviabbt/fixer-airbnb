@@ -1,0 +1,20 @@
+<div class="container text-center my-3">
+  <h4>My Upcoming Bookings</h4>
+  <% @bookings.each do |booking| %>
+    <div class="card-skill">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://pegramandnoyes.com/wp-content/uploads/sites/6/does_a_handyman_need_insurance_north_carolina.jpg"  %>
+        Handy Sh*t
+      </div>
+      <div class="card-skill-infos">
+        <div class="col">
+          <h2><%= booking.skill.title %></h2>
+          <p><%= booking.address %></p>
+          <p><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
+        </div>
+        <%= image_tag '10_avatar-512.png', class:"card-skill-user avatar-bordered"%>
+        <h2 class="card-skill-pricing"><i class="fas fa-euro-sign"></i><%= booking.total_price %></h2>
+        <p><%= booking.user.first_name %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

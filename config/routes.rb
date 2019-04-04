@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
-      resources :skills do
-        resources :bookings, only: [:index, :new, :create] do
-      end
-      resources :bookings, only: [:show] do
-          resources :reviews, only: [:create, :new]
-        end
-    end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :bookings
-  resources :skills
-  resources :reviews
-end
+  resources :skills do
+    resources :bookings, only: [:new, :create]
+  end
+  resources :bookings, only: [:show] do
+    resources :reviews, only: [:create, :new]
+  end
+  resources :bookings, only: :index
+  resources :users, only: [:show]
 
-# /skills/3/bookings/5/reviews
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+end
