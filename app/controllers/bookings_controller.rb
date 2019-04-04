@@ -1,14 +1,12 @@
 class BookingsController < ApplicationController
   def index
-
     @bookings = policy_scope(Booking).all.where(user: current_user)
-
   end
 
   def new
     @booking = Booking.new
+    @skill = Skill.find(params[:skill_id])
     authorize @booking
-
   end
 
   def create
