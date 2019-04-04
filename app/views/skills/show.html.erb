@@ -9,7 +9,8 @@
     <div class="col-8 offset-2 text-center">
       <h4><%= @skill.title %></h4>
       <%= image_tag @skill.user.picture, class:"card-skill-user avatar-bordered w-50 h-50 my-3"%>
-      <p><%= @skill.user.first_name %></p>
+      <p><strong><em><%= @skill.user.first_name %></em></strong></p>
+      <!-- Not leading to the right user -->
       <p><%= link_to "View Profile", user_path(@skill.user) %></p>
       <h5>Price:</h5>
       <p><i class="fas fa-euro-sign"></i><%= @skill.price_per_hour %>/per hour</p>

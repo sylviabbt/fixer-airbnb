@@ -6,14 +6,15 @@
     <%= user.input :contact_info%>
     <%= user.submit "save", class: "btn btn-primary" %>
   <% end %>
-
-<div class="card-skill-add my-3 p-3">
-<%= simple_form_for @skill do |skill| %>
-<%= skill.association :category %>
-  <%= skill.input :title, placeholder: "please describe (e.g. plumber)" %>
-  <%= skill.input :earliest_available %>
-  <%= skill.input :latest_available %>
-  <%= skill.submit "Add Skill", class: "btn btn-primary" %>
-<% end %>
+  <div class="card-skill-add my-3 p-3">
+    <h3>Add a Skill!</h3>
+    <%= simple_form_for @skill do |skill| %>
+      <%= skill.association :category %>
+      <%= skill.input :title, placeholder: "please describe (e.g. plumber)" %>
+      <%= skill.input :earliest_available %>
+      <%= skill.input :latest_available %>
+      <%= skill.submit "Add Skill", class: "btn btn-primary" %>
+    <% end %>
+    <!-- Need to add a CREATE method in order for this to work! -->
+  </div>
 </div>
-</div
