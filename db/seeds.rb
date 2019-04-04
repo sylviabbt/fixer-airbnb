@@ -12,7 +12,13 @@ Booking.delete_all if Rails.env.development?
 Skill.delete_all if Rails.env.development?
 User.delete_all if Rails.env.development?
 
-User.create!(email: "ivy.yu@gmail.com", password: "123123")
+ivy = User.create!(first_name: "Ivy", last_name: "Yu", location: "Shanghai", contact_info: "1888888888", email: "ivy.yu@gmail.com", password: "123123", picture: "https://www.peekskillnurseries.com/wp-content/uploads/2018/04/englishivy.jpg")
+skill_ivy = Skill.new(title: %w(plumber iphone-fixer arguing-with-people professional-clown).sample, price_per_hour: [100, 110, 120, 130, 140, 150].sample, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy.user_id = ivy.id
+skill_ivy.save
+skill_ivy_2 = Skill.new(title: %w(plumber iphone-fixer arguing-with-people professional-clown).sample, price_per_hour: [100, 110, 120, 130, 140, 150].sample, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy_2.user_id = ivy.id
+skill_ivy_2.save
 
 5.times do
   user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name,  email: Faker::Internet.email, location: Faker::Address.city, contact_info: Faker::PhoneNumber.phone_number, password: Faker::Internet.password)
