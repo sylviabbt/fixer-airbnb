@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def new
     @booking = Booking.find(params[:booking_id])
-    # @skill = Skill.find(params[:skill_id])
     @review = Review.new
   end
 

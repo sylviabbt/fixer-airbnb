@@ -1,16 +1,18 @@
 class SkillsController < ApplicationController
-
   before_action :set_skill, only: [:show, :destroy]
+  after_action :verify_policy_scoped, only: [:index]
   def index
-    @skills = Skill.all
+    @skills = policy_scope(Skill)
   end
 
   def new
     @skill = Skill.new
+    authorize @skill
   end
 
   def create
     @skills = Skill.new(skill_params)
+    authorize @skill
     if @skill.save
       redirect_to @user
     else
@@ -19,6 +21,7 @@ class SkillsController < ApplicationController
   end
 
   def show
+    authorize @skill
   end
 
   def destroy
