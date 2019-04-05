@@ -2,6 +2,7 @@ class Skill < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :bookings
+  has_many :reviews, through: :bookings
 
   validates :title, presence: true
   validates :price_per_hour, presence: true

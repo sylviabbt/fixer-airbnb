@@ -1,7 +1,6 @@
 class SkillsController < ApplicationController
   before_action :set_skill, only: [:show, :destroy]
   after_action :verify_policy_scoped, only: [:index]
-  skip_before_action :verify_authenticity_token
 
   def index
     if params[:query].present?
