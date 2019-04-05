@@ -1,6 +1,7 @@
   <%= link_to skills_path do %>
   <i class="fas fa-chevron-circle-left ml-3"> Back</i>
 <% end %>
+<%= link_to "Edit Profile", edit_user_path %>
 <div class="container text-center">
   <%= image_tag current_user.picture, class:"card-skill-user avatar-bordered w-50 h-50 my-3" %>
   <h1>Hi! I'm <%= current_user.first_name %></h1>

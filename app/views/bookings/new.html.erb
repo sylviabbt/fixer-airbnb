@@ -1,16 +1,18 @@
 <div class="container">
   <%= link_to skills_path do %>
-    <i class=“fas fa-chevron-circle-left”> Back</i>
+    <i class="fas fa-chevron-circle-left"> Back </i>
   <% end %>
-  <%= image_tag "https://kitt.lewagon.com/placeholder/users/sarahlafer", class: "avatar-bordered", alt: "avatar-bordered" %>
-  <h3>Make a booking with <%= current_user.first_name %></h3>
-  <p>Available Times:</p>
-  <%= @skill.earliest_available.strftime("%b %e, %l:%M %p") %> -- <%= @skill.latest_available.strftime("%b %e, %l:%M %p") %>
-  <div class="booking-form">
-    <%= simple_form_for [@skill, @booking] do |f| %>
-      <%= f.input :address %>
-      <%= f.input :start_time %>
-      <%= f.submit "book now!", class:"btn btn-primary" %>
-    <% end %>
+  <div class="view-card my-3">
+    <%= image_tag @skill.user.picture, class: "avatar-bordered", alt: "avatar-bordered" %>
+    <h3>Make a booking with <%= @skill.user.first_name %></h3>
+    <p><strong>Available Times:</strong></p>
+    <%= @skill.earliest_available.strftime("%b %e, %l:%M %p") %> -- <%= @skill.latest_available.strftime("%b %e, %l:%M %p") %>
+    <div class="booking-form mt-3">
+      <%= simple_form_for [@skill, @booking] do |f| %>
+        <%= f.input :address %>
+        <%= f.input :start_time %>
+        <%= f.submit "Book Now!", class:"btn btn-flat" %>
+      <% end %>
+    </div>
   </div>
 </div>

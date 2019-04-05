@@ -20,10 +20,10 @@ professional = Category.create!(title: "Professional Sh*t", image: "https://www.
 
 
 ivy = User.create!(first_name: "Ivy", last_name: "Yu", location: "Shanghai", contact_info: "1888888888", email: "ivy.yu@gmail.com", password: "123123", picture: "https://synthesisgroup.com.au/wp-content/uploads/2014/08/William-Pegg-Low-res-238805-crop-square-min-300x300.jpg")
-skill_ivy = Skill.new(category: handy, title: "Plumber", price_per_hour: 100, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy = Skill.new(category: handy, title: "🚽 Plumber", price_per_hour: 100, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
 skill_ivy.user_id = ivy.id
 skill_ivy.save
-skill_ivy_2 = Skill.new(category: life, title: "Arguing with People", price_per_hour: 150, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
+skill_ivy_2 = Skill.new(category: life, title: "😡 Arguing with People", price_per_hour: 150, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
 skill_ivy_2.user_id = ivy.id
 skill_ivy_2.save
 
@@ -34,7 +34,7 @@ users = ['lady1.jpg', 'man1.jpg', 'woman2.jpg', 'man2.jpg']
   # p skill.earliest_available
   # p skill.latest_available
 end
-skillz = {"Iphone Repair": handy, "Plumber": handy, "Arguing with People": life, "Fun or Scary Clown": life, "Locksmith": handy, "Professional Breakup Advice": professional}
+skillz = {"📱 Iphone Repair": handy, "🚽 Plumber": handy, "😡 Arguing with People": life, "🤡 Fun or Scary Clown": life, "🔐 Locksmith": handy, "💔 Professional Breakup Advice": professional}
 
 skillz.each do |key, value|
   5.times do

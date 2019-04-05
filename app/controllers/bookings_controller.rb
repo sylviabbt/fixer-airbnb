@@ -17,8 +17,8 @@ class BookingsController < ApplicationController
     @booking.skill = @skill
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @booking }
+        format.html { redirect_to @bookings, notice: 'Booking was successfully created.' }
+        format.json { render :show, status: :created, location: @bookings }
       else
         format.html { render :new }
         format.json { render json: @booking.errors, status: :unprocessable_entity }
