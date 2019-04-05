@@ -10,12 +10,11 @@
       <h4><%= @skill.title %></h4>
       <%= image_tag @skill.user.picture, class:"card-skill-user avatar-bordered w-50 h-50 my-3"%>
       <p><strong><em><%= @skill.user.first_name %></em></strong></p>
-      <!-- Not leading to the right user -->
       <p><%= link_to "View Profile", user_path(@skill.user.id) %></p>
       <h5>Price:</h5>
       <p><i class="fas fa-euro-sign"></i><%= @skill.price_per_hour %>/per hour</p>
       <h5>Availability:</h5>
-      <p><%= @skill.earliest_available.strftime("%b %e, %l:%M %p") %> -- <%= @skill.latest_available.strftime("%b %e, %l:%M %p") %></p>
+      <p><%= @skill.earliest_available.strftime("%I:%M:%S %p") %> -- <%= @skill.latest_available.strftime("%I:%M:%S %p") %></p>
       <h5>Location:</h5>
       <p><%= @skill.user.location %></p>
       <%= link_to "Make a Booking!", new_skill_booking_path(@skill), class:"btn btn-flat p-2 my-3" %>
