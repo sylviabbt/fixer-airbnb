@@ -13,8 +13,9 @@
       <%= skill.input :title, placeholder: "please describe (e.g. plumber)" %>
       <%= skill.input :earliest_available %>
       <%= skill.input :latest_available %>
-      <%= skill.submit "Add Skill", class: "btn btn-primary" %>
+      <%= skill.submit "Add Skill", class: "btn btn-primary mb-3" %>
     <% end %>
+    <%= link_to "Back", user_path(current_user) %>
     <!-- Need to add a CREATE method in order for this to work! -->
   </div>
 </div>
