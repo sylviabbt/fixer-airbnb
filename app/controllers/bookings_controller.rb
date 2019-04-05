@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = policy_scope(Booking).all.where(user: current_user)
+    @bookings = policy_scope(Booking).where(user: current_user).order(created_at: :desc)
   end
 
   def new
@@ -15,15 +15,17 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @skill = Skill.find(params[:skill_id])
     @booking.skill = @skill
-    respond_to do |format|
-      if @booking.save
-        format.html { redirect_to @bookings, notice: 'Booking was successfully created.' }
-        format.json { render :show, status: :created, location: @bookings }
-      else
-        format.html { render :new }
-        format.json { render json: @booking.errors, status: :unprocessable_entity }
-      end
+    if @booking.save
+      redirect_to bookings_path, notice: 'Booking was successfully created.'
+    else
+      render :new
     end
+  end
+
+  def show
+    @user = current_user
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private

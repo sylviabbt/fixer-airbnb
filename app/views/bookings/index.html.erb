@@ -9,7 +9,7 @@
         <div class="col">
           <h2><%=booking.skill.title %></h2>
           <p><%= booking.address %></p>
-          <p><%= booking.start_time.strftime("%b %e, %l:%M %p") %></p>
+          <p><%= booking.start_time.strftime("%I:%M:%S %p") %></p>
         </div>
         <div class="personal">
           <%= image_tag booking.user.picture, class:"card-skill-user avatar-bordered"%>
