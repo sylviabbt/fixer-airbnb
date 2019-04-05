@@ -4,7 +4,11 @@ class SkillsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @skills = policy_scope(Skill)
+    if params[:query].present?
+      @skills = policy_scope(Skill).where("title ILIKE ?", "%#{params[:query]}%")
+    else
+      @skills = policy_scope(Skill).all
+    end
   end
 
   def new
