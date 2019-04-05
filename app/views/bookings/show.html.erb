@@ -1,1 +1,7 @@
-<%= @booking %>
+<div class="container">
+  <%= simple_form_for [@booking, @review] do |r| %>
+    <%= r.input :content %>
+    <%= r.input :rating %>
+    <%= r.submit "Add Review", class: "btn btn-flat" %>
+  <% end %>
+</div>

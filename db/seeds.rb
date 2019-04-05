@@ -49,10 +49,9 @@ User.all.each do |user|
     booking.total_price = booking.skill.price_per_hour * 2
     booking.address = Faker::Address.street_address
     booking.save!
-    3.times do
+    4.times do
       rating = Array(0..5).sample
       review = Review.create!(content: Faker::Hipster.sentence, rating: rating, booking: booking)
     end
   end
-
 end

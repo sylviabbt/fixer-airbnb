@@ -1,5 +1,5 @@
 <div class="container text-center my-3">
-  <h4>My Upcoming Bookings</h4>
+  <h4>My Bookings</h4>
   <% @bookings.each do |booking| %>
     <div class="card-skill">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path booking.skill.category.image %>')">
@@ -7,7 +7,7 @@
       </div>
       <div class="card-skill-infos">
         <div class="col">
-          <h2><%=booking.skill.title %></h2>
+          <h2><%= booking.skill.title %></h2>
           <p><%= booking.address %></p>
           <p><%= booking.start_time.strftime("%I:%M:%S %p") %></p>
         </div>
@@ -17,6 +17,7 @@
           <h2 class="card-skill-pricing"><i class="fas fa-euro-sign"></i><%= booking.total_price %></h2>
         </div>
       </div>
+      <%= link_to "Write a Review", booking_path(booking) %>
     </div>
   <% end %>
 </div>
