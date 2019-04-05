@@ -37,9 +37,7 @@ end
 skillz = {"📱 Iphone Repair": handy, "🚽 Plumber": handy, "😡 Arguing with People": life, "🤡 Fun or Scary Clown": life, "🔐 Locksmith": handy, "💔 Professional Breakup Advice": professional}
 
 skillz.each do |key, value|
-  5.times do
-    Skill.create!(title: key, category: value, user: User.all.sample, price_per_hour: [100, 110, 120, 130, 140, 150].sample, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
-  end
+  Skill.create!(title: key, category: value, user: User.all.sample, price_per_hour: [100, 110, 120, 130, 140, 150].sample, earliest_available: Faker::Time.between(2.days.ago, Date.today, :afternoon), latest_available: Faker::Time.between(2.days.ago, Date.today, :evening))
 end
 
 
@@ -53,7 +51,6 @@ User.all.each do |user|
     booking.save!
     3.times do
       rating = Array(0..5).sample
-      p rating
       review = Review.create!(content: Faker::Hipster.sentence, rating: rating, booking: booking)
     end
   end
