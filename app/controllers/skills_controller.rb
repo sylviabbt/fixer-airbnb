@@ -5,9 +5,9 @@ class SkillsController < ApplicationController
 
   def index
     if params[:query].present?
-      @skills = policy_scope(Skill).where("title ILIKE ?", "%#{params[:query]}%")
+      @skills = policy_scope(Skill).where("title ILIKE ?", "%#{params[:query]}%").order(created_at: :desc)
     else
-      @skills = policy_scope(Skill).all
+      @skills = policy_scope(Skill).all.order(created_at: :desc)
     end
   end
 

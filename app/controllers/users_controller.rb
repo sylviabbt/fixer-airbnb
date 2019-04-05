@@ -10,6 +10,18 @@ class UsersController < ApplicationController
     authorize @user
   end
 
+  def create
+    @skill = Skill.new(skill_params)
+    @user = current_user
+    @skill.user = @user
+    authorize @skill
+    if @skill.save
+      redirect_to @user
+    else
+      render :new
+    end
+  end
+
   private
 
   def set_user
