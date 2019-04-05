@@ -12,9 +12,9 @@
           <p><%= booking.start_time.strftime("%I:%M:%S %p") %></p>
         </div>
         <div class="personal">
-          <%= image_tag booking.user.picture, class:"card-skill-user avatar-bordered"%>
-          <p><%= booking.user.first_name %></p>
-          <h2 class="card-skill-pricing"><i class="fas fa-euro-sign"></i><%= booking.skill.price_per_hour %></h2>
+          <%= image_tag booking.skill.user.picture, class:"card-skill-user avatar-bordered"%>
+          <p><%= booking.skill.user.first_name %></p>
+          <h2 class="card-skill-pricing"><i class="fas fa-euro-sign"></i><%= booking.total_price %></h2>
         </div>
       </div>
       <%= link_to "Write a Review", booking_path(booking) %>
