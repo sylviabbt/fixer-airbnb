@@ -17,6 +17,11 @@
       <p><%= @skill.earliest_available.strftime("%I:%M:%S %p") %> -- <%= @skill.latest_available.strftime("%I:%M:%S %p") %></p>
       <h5>Location:</h5>
       <p><%= @skill.user.location %></p>
+      <div class="review">
+        <p><% @skill.reviews.each do |review| %></p>
+          <p><%= review.content %> -- <%= review.rating %></p>
+        <% end %>
+      </div>
       <%= link_to "Make a Booking!", new_skill_booking_path(@skill), class:"btn btn-flat p-2 my-3" %>
     </div>
   </div>
