@@ -3,13 +3,14 @@
 <% end %>
 <%= link_to "Edit Profile", edit_user_path %>
 <div class="container text-center">
+  <!-- Not leading to the right user -->
   <%= image_tag current_user.picture, class:"card-skill-user avatar-bordered w-50 h-50 my-3" %>
   <h1>Hi! I'm <%= current_user.first_name %></h1>
   <p><em>Location: <%= current_user.location %></em></p>
   <div class="btn btn-flat my-3 w-75">My Skills</div>
   <% current_user.skills.each do |skill| %>
     <p><%= skill.title %></p>
-    <p> <%#= link_to Book now!, new_skill_booking %></p>
+    <p> <%= link_to 'Book now!', new_skill_booking_path(skill) %></p>
   <% end %>
 </div>
 </div>
